@@ -3,9 +3,15 @@ package com.foodbox.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Table(name="tbl_login")
+@Setter
+@Getter
 public class Login {
 @Id
 private String emailid;
@@ -34,16 +40,5 @@ public void setTypeOfUser(String typeOfUser) {
 public String toString() {
 	return "Login [emailid=" + emailid + ", password=" + password + ", typeOfUser=" + typeOfUser + "]";
 }
-public Login(String emailid, String password, String typeOfUser) {
-	super();
-	this.emailid = emailid;
-	this.password = password;
-	this.typeOfUser = typeOfUser;
-}
-public Login() {
-	super();
-	// TODO Auto-generated constructor stub
-}
-
 
 }

@@ -14,7 +14,9 @@ public class LoginService {
 	@Autowired
 	LoginRepository loginRepository;
 	
+	@SuppressWarnings("unused")
 	public String signIn(Login login) {
+		
 		boolean res = loginRepository.existsById(login.getEmailid());
 		if(login.getTypeOfUser().equals("admin")) {
 			if(loginRepository.checkLoginDetails(login.getEmailid(), login.getPassword(),login.getTypeOfUser())!=null) {

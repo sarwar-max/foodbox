@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.foodbox.model.Login;
 
 
+
+
+
 @Repository
 public interface LoginRepository extends JpaRepository<Login, String>{
 
