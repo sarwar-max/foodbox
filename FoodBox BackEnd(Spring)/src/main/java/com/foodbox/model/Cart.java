@@ -1,12 +1,14 @@
 package com.foodbox.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Cart {
 	@Id
+	@GeneratedValue
 	private long id;
 	private int quantity;
 	private float price;
