@@ -1,0 +1,136 @@
+
+create database foodbox1;
+
+CREATE TABLE `login` (
+  `id` bigint(11) NOT NULL,
+  `type` int(11) NOT NULL DEFAULT 0,
+  `username` varchar(111) NOT NULL,
+  `email` varchar(111) NOT NULL,
+  `password` varchar(111) NOT NULL
+);
+
+INSERT INTO `login` (`id`, `type`, `username`,`email`, `password`) VALUES
+(1, 'admin','Chris warmth','warmth@zag.com', '5956278190');
+(2, 'customer','Chris','chris@zag.com', '5676278190');
+
+
+
+
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL,PRIMARY KEY,
+  `name` varchar(255) NOT NULL,FOREIGN KEY,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `address` text NOT NULL
+) 
+
+
+
+INSERT INTO `customer` (`id`, `name`, `email`, `password`, `phone`, `address`) VALUES
+
+(1, 'Martin', 'martin@ylm.com', '3ab345', '4567634560', 'b - 111 Street road, new york  USA.');
+(2, 'Henrix', 'henrix@ylm.com', '56rs87', '8921634560', '2 - 2b Street road, mexico USA.');
+(3, 'john', 'jhon@ylm.com', '36te936', '9983563260', 'b - 2x Street road, canada USA.');
+
+
+
+
+CREATE TABLE `product` (
+  `id` bigint(11) NOT NULL,PRIMARY KEY ,
+  `name` varchar(111) NOT NULL,
+  `category`  varchar(11) NOT NULL,
+  `description` varchar(65) NOT NULL,
+  `price` int(30) NOT NULL,
+  `actual price` int(25) NOT NULL,
+  `discount`  int DEFAULT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'Avilable',
+ `image path` bigint(11) NOT NULL
+); 
+
+INSERT INTO `product` (`id`,  `name`,'category','description', `price`, `actual price`, `discount, `status`,'image path') VALUES
+(1, 'Masala Paneer Kathi Roll', indian, 'Yammi Masala Paneer Kathi Roll loaded with Masala Paneer chunks, onion & Mayo.','150','0','0','Available', 'Masala_Paneer_Kathi_Roll.jpg'),
+(2, 'Grilled Fish', 'chinese', 'A whole Pomfret fish grilled with tangy marination & served with grilled onions and tomatoes.','90','90','0','Available', 'Meurig.jpg');
+(3, 'chaco chip shake ', arab, 'a perfect party sweet','100','0','0','Available', 'chaco chip shake .jpg'),
+(4, 'Fattoush', 'persan','delecious bread sald' '90','0','0','Available',  'fattoush.jpg'),
+(5, 'Sichuan pork ', chinese, 'sweet and sour pork ','75','0','0','Available', 'sichuan pork.jpg');
+
+
+
+
+
+
+CREATE TABLE `Menu` (
+  `id` bigint(11) NOT NULL,PRIMARY KEY 
+  `Dish_type` varchar(411) NOT NULL
+);
+
+
+INSERT INTO `Menu` (`id`, `Dish_type`) VALUES
+(1, 'Arab'),
+(2, 'Chinese'),
+(3, 'Persian'),
+(4, 'Indian'),
+(5, 'Italian');
+
+
+
+
+CREATE TABLE `Admin` (
+  `id` bigint(11) NOT NULL,PRIMARY KEY,
+  `username` varchar(111) NOT NULL,PRIMARY KEY ,
+  `password` varchar(111) NOT NULL
+);
+
+INSERT INTO `login` (`id`,  `username`, `password`) VALUES
+(1,  'henrix', 'admin'),
+(2,  'leo', 'admin2'),
+
+
+
+CREATE TABLE `cart` (
+  `id` bigint(11) NOT NULL,PRIMARY KEY ,
+  `product` varchar(111) NOT NULL,FOREIGN KEY,
+  `quantity`  varchar(11) NOT NULL,
+  `price` int(30) NOT NULL,
+);
+
+INSERT INTO `product` (`id`,  `Product`,'Quantity', `price`) VALUES
+(1,  'Coffee', '2', '65'),
+(2,  'Pizza', '1, '125'),
+(3,  'samosa', '1','20'),
+(4,  'Burger', '2', '85');
+
+
+
+
+
+
+CREATE TABLE `purchase` (
+  `id` bigint(11) NOT NULL,PRIMARY KEY ,
+  `customer` varchar(255) NOT NULL,FOREIGN KEY,
+  `product` varchar(111) NOT NULL,FOREIGN KEY,
+  `quantity`  int(11) NOT NULL,
+  `total cost` int(30) NOT NULL,
+  `Date of transaction `varchar(11) NOT NULL,
+  `Transaction id` varchar(30) NOT NULL,
+
+);
+
+INSERT INTO `purchase` (`id`,`customer`,`Product`,'Quantity', `Total cost`,'Date of transaction `,`Transaction id`) VALUES
+(1, 'George', 'sandwich', '1', '58','22-8-2021','56g72439a87')  
+(2,  'Harry','Coffee, '2, '75',' 3-4-2022','3cd4567n67'),
+(3,  'Leo','Burger', '1','90','6-2-2022',' 7rf6128ve91');
+
+
+
+
+
+
+
+
+
+
+
+
